@@ -43,7 +43,7 @@ class Header extends Component {
             </li>
           </ul>
         </nav>
-        { carregando === true ? (<Loading />) // rederiza o carregando e nome do usário
+        { carregando === true ? (<Loading />) // rederiza carregando e nome do usário
           : (<p data-testid="header-user-name">{ nome }</p>)}
 
       </header>
