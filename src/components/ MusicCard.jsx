@@ -39,7 +39,7 @@ class MusicCard extends Component {
   };
 
   render() {
-    const { music: { trackName, previewUrl, trackId } } = this.props;
+    const { music: { trackName, previewUrl, trackId }, renderFavorite } = this.props;
     const { isChecked, isLoading } = this.state;
     return (
       <div>
@@ -59,6 +59,7 @@ class MusicCard extends Component {
             data-testid={ `checkbox-music-${trackId}` }
             onChange={ this.getFavorite }
             checked={ isChecked }
+            onClick={ renderFavorite }
           />
         </label>
       </div>

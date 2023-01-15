@@ -32,7 +32,11 @@ class Favorites extends Component {
       <div data-testid="page-favorites">
         <Header />
         {isLoading ? <Loading /> : (music.map((musica) => (
-          <MusicCard key={ musica.trackId } music={ musica } />
+          <MusicCard
+            renderFavorite={ this.renderFavorite }
+            key={ musica.trackId }
+            music={ musica }
+          />
         )))}
       </div>
     );
