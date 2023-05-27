@@ -40,16 +40,29 @@ class Login extends Component {
     return (
       <Container
         data-testid="page-login"
-        className="d-flex align-items-center justify-content-center"
-        style={ { height: '100vh' } }
-      >
-        {isLoading && <Loading />}
+        className="d-flex flex-column align-items-center justify-content-center"
+        style={ { height: '100vh',
 
-        <Form.Label htmlFor="inputPassword5">Faça acesso ao Trybe Tunes</Form.Label>
+        } }
+      >
+        <h1
+          className="text-center display-4 fw-bold"
+        >
+          Listen to a snippet of your favorite song
+
+        </h1>
+
+        <p
+          className="mb-4 text-center fs-5"
+          style={ { fontSize: '1.5rem' } }
+          htmlFor="Access"
+        >
+          Access Tunes
+        </p>
 
         <Form.Control
           type="text"
-          className="w-50"
+          className="w-50 mb-4"
           data-testid="login-name-input"
           id="name"
           name="name"
@@ -65,8 +78,9 @@ class Login extends Component {
           disabled={ isDisabled }
           onClick={ () => this.handleClick(name) }
         >
-          Entrar
+          Enter
         </Button>
+        {isLoading && <Loading />}
       </Container>
 
     );
