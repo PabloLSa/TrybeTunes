@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Button, Container, Form } from 'react-bootstrap';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
+
+// or less ideally
 
 class Login extends Component {
   state = {
@@ -35,25 +38,37 @@ class Login extends Component {
   render() {
     const { isDisabled, name, isLoading } = this.state;
     return (
-      <div data-testid="page-login">
+      <Container
+        data-testid="page-login"
+        className="d-flex align-items-center justify-content-center"
+        style={ { height: '100vh' } }
+      >
         {isLoading && <Loading />}
-        <input
+
+        <Form.Label htmlFor="inputPassword5">Faça acesso ao Trybe Tunes</Form.Label>
+
+        <Form.Control
           type="text"
+          className="w-50"
           data-testid="login-name-input"
           id="name"
           name="name"
+          placeholder="User name"
           onChange={ this.handleChange }
         />
-        <button
+
+        <Button
+          size="lg"
+          variant="primary"
           type="button"
           data-testid="login-submit-button"
           disabled={ isDisabled }
           onClick={ () => this.handleClick(name) }
         >
           Entrar
+        </Button>
+      </Container>
 
-        </button>
-      </div>
     );
   }
 }
