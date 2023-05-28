@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Button, Container, Form } from 'react-bootstrap';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
+// import Img from '../pexels-elviss-railijs-bitāns-1389429.jpg';
 
 // or less ideally
 
@@ -42,23 +43,28 @@ class Login extends Component {
         data-testid="page-login"
         className="d-flex flex-column align-items-center justify-content-center"
         style={ { height: '100vh',
-
+          backgroundImage: 'url("https://as1.ftcdn.net/v2/jpg/05/62/98/36/1000_F_562983674_524xR5Rzurt8MjTQghCvNYBcyeuvLHPE.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         } }
       >
         <h1
           className="text-center display-4 fw-bold"
+          style={ {
+            color: 'black',
+          } }
         >
           Listen to a snippet of your favorite song
 
         </h1>
 
-        <p
+        <h1
           className="mb-4 text-center fs-5"
           style={ { fontSize: '1.5rem' } }
           htmlFor="Access"
         >
           Access Tunes
-        </p>
+        </h1>
 
         <Form.Control
           type="text"
