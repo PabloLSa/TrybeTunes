@@ -82,7 +82,10 @@ class Search extends Component {
               </Link>
             ))
           ) : (
-            <p>Nenhum álbum foi encontrado</p>
+            <p className="result-text">
+              No album was found
+
+            </p>
           )}
         </div>
       </div>
