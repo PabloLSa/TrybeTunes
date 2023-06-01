@@ -1,0 +1,17 @@
+.header {
+  background-color: #140d24;
+  color: white;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.header-user-name {
+  margin-left: 3px;
+}
+
+.header-user-label {
+  margin-right: 5px;
+}

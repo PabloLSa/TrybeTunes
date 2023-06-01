@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Nav, Navbar } from 'react-bootstrap';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
+import './header.css';
 
 class Header extends Component {
   state = {
     nome: '',
     carregando: false,
-
   };
 
-  componentDidMount() { // exibindo o nome do usuário
+  componentDidMount() {
     this.name();
   }
 
   name = async () => {
     this.setState({
-      carregando: true, // essa função mostra o nome salvo no localStorage e mostra o caregando na tela
+      carregando: true,
     });
     const { name } = await getUser();
     this.setState({
@@ -28,24 +29,32 @@ class Header extends Component {
   render() {
     const { nome, carregando } = this.state;
     return (
-      <header data-testid="header-component">
-        <p>TrybeTunes</p>
-        <nav>
-          <ul>
-            <li>
-              <Link data-testid="link-to-search" to="/search">Search</Link>
-            </li>
-            <li>
-              <Link data-testid="link-to-favorites" to="/favorites">Favorites</Link>
-            </li>
-            <li>
-              <Link data-testid="link-to-profile" to="/profile">Profile</Link>
-            </li>
-          </ul>
-        </nav>
-        { carregando === true ? (<Loading />) // renderiza carregando e nome do usário
-          : (<p data-testid="header-user-name">{ nome }</p>)}
-
+      <header data-testid="header-component" className="header">
+        <Navbar expand="lg" variant="dark">
+          <Navbar.Brand href="/" className="header-title">TrybeTunes</Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbar-nav" />
+          <Navbar.Collapse id="navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link as={ Link } to="/search" data-testid="link-to-search">
+                Search
+              </Nav.Link>
+              <Nav.Link as={ Link } to="/favorites" data-testid="link-to-favorites">
+                Favorites
+              </Nav.Link>
+              <Nav.Link as={ Link } to="/profile" data-testid="link-to-profile">
+                Profile
+              </Nav.Link>
+            </Nav>
+            {carregando ? (
+              <Loading />
+            ) : (
+              <div className="header-user">
+                <span className="header-user-label">Listener:</span>
+                <span className="header-user-name">{nome}</span>
+              </div>
+            )}
+          </Navbar.Collapse>
+        </Navbar>
       </header>
     );
   }

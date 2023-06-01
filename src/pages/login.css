@@ -21,5 +21,5 @@
   height: 200px; /* Ajuste a altura desejada */
   border-radius: 50%; /* Define metade da largura/altura para obter um círculo */
   margin-top: 20px;
-  max-width: 100%; /* Adicione esta propriedade */
+  max-width: 100%; 
 }

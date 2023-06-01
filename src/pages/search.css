@@ -1,0 +1,31 @@
+.album-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.album-card {
+  background-color: #f8f9fa;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.album-image {
+  height: auto;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+.album-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.result-text {
+  color: white;
+}
+
+.search-button {
+  margin-top: 10px;
+}

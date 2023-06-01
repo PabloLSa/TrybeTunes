@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Form, Button } from 'react-bootstrap';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser, updateUser } from '../services/userAPI';
+import './profileEdit.css';
 
 class ProfileEdit extends Component {
   state = {
@@ -18,7 +20,7 @@ class ProfileEdit extends Component {
     await this.userInformation();
   }
 
-  handlechange = ({ target: { name, value } }) => {
+  handleChange = ({ target: { name, value } }) => {
     this.setState({
       [name]: value,
     }, this.validation);
@@ -62,46 +64,58 @@ class ProfileEdit extends Component {
       <div data-testid="page-profile-edit">
         <Header />
         {charge && <Loading />}
-        <fieldset>
-          <legend>Editar</legend>
-          <input
-            value={ name }
-            name="name"
-            type="text"
-            data-testid="edit-input-name"
-            onChange={ this.handlechange }
-          />
-          <input
-            value={ email }
-            name="email"
-            type="text"
-            data-testid="edit-input-email"
-            onChange={ this.handlechange }
-          />
-          <input
-            value={ description }
-            name="description"
-            type="text"
-            data-testid="edit-input-description"
-            onChange={ this.handlechange }
-          />
-          <input
-            value={ image }
-            name="image"
-            type="text"
-            data-testid="edit-input-image"
-            onChange={ this.handlechange }
-          />
-        </fieldset>
+        <Form className="profile-edit-form">
+          <fieldset>
+            <Form.Group controlId="edit-input-name">
+              <Form.Label>Nome</Form.Label>
+              <Form.Control
+                type="text"
+                value={ name }
+                name="name"
+                onChange={ this.handleChange }
+              />
+            </Form.Group>
+            <Form.Group controlId="edit-input-email">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="text"
+                value={ email }
+                name="email"
+                onChange={ this.handleChange }
+              />
+            </Form.Group>
+            <Form.Group controlId="edit-input-description">
+              <Form.Label>Descrição</Form.Label>
+              <Form.Control
+                type="text"
+                value={ description }
+                name="description"
+                onChange={ this.handleChange }
+              />
+            </Form.Group>
+            <Form.Group controlId="edit-input-image">
+              <Form.Label>Imagem</Form.Label>
+              <Form.Control
+                type="text"
+                value={ image }
+                name="image"
+                onChange={ this.handleChange }
+              />
+            </Form.Group>
+          </fieldset>
+          <div className="search-button">
+            <Button
+              type="button"
+              variant="primary"
+              data-testid="edit-button-save"
+              onClick={ this.updateInfo }
+              disabled={ btn }
+            >
+              Editar perfil
+            </Button>
+          </div>
 
-        <button
-          type="button"
-          data-testid="edit-button-save"
-          onClick={ this.updateInfo }
-          disabled={ btn }
-        >
-          Editar perfil
-        </button>
+        </Form>
       </div>
     );
   }

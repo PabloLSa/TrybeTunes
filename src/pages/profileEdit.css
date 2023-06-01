@@ -1,0 +1,14 @@
+.profile-edit-form {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.profile-edit-form label,
+.profile-edit-form input,
+.profile-edit-form button {
+  color: white;
+}
+
+.search-button {
+  margin-top: 10px;
+}

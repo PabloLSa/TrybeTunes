@@ -4,7 +4,7 @@ import { Button, Container, Form } from 'react-bootstrap';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
 import img from '../download.png';
-import './pages.css';
+import './login.css';
 
 class Login extends Component {
   state = {
@@ -51,7 +51,7 @@ class Login extends Component {
           data-testid="login-name-input"
           id="name"
           name="name"
-          placeholder="User name"
+          placeholder="listener's name"
           onChange={ this.handleChange }
         />
 

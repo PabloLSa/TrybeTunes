@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Button, Form } from 'react-bootstrap';
 import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from '../components/Loading';
+import './search.css';
 
 class Search extends Component {
   state = {
@@ -39,46 +41,49 @@ class Search extends Component {
       <div data-testid="page-search">
         <Header />
         {isLoading && <Loading />}
-        <input
-          type="text"
-          data-testid="search-artist-input"
-          name="name"
-          value={ name }
-          onChange={ ({ target }) => this.setState({ name: target.value }) }
-        />
-        <button
-          type="button"
-          data-testid="search-artist-button"
-          disabled={ name.length < 2 }
-          onClick={ this.getAlbumsAPI }
-        >
-          Pesquisar
-
-        </button>
-        <p>
+        <Form.Group controlId="search-artist-input">
+          <Form.Control
+            type="text"
+            placeholder="Search artist"
+            value={ name }
+            onChange={ ({ target }) => this.setState({ name: target.value }) }
+          />
+        </Form.Group>
+        <div className="search-button">
+          <Button
+            type="button"
+            variant="primary"
+            disabled={ name.length < 2 }
+            onClick={ this.getAlbumsAPI }
+          >
+            Search
+          </Button>
+        </div>
+        <p className="result-text">
+          Result of Albums:
           {' '}
-          Resultado de álbuns de:
-          {' '}
-          { pesquisa }
+          {pesquisa}
         </p>
-        <div>
-          {apiReturn ? album.map((albuns) => (
-            <Link
-              data-testid={ `link-to-album-${albuns.collectionId}` }
-              key={ albuns.collectionId }
-              to={ `/album/${albuns.collectionId}` }
-            >
-              <img
-                src={ albuns.artworkUrl100 }
-                alt="imagemDoALbum"
-              />
-              <h1>
-                {albuns.collectionName}
-
-              </h1>
-            </Link>
-          )) : <p>Nenhum álbum foi encontrado</p>}
-
+        <div className="album-list">
+          {apiReturn ? (
+            album.map((albuns) => (
+              <Link
+                key={ albuns.collectionId }
+                to={ `/album/${albuns.collectionId}` }
+              >
+                <div className="album-card">
+                  <img
+                    src={ albuns.artworkUrl100 }
+                    alt="Album artwork"
+                    className="album-image"
+                  />
+                  <h1 className="album-title">{albuns.collectionName}</h1>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <p>Nenhum álbum foi encontrado</p>
+          )}
         </div>
       </div>
     );
