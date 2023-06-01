@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
+import './musicCard.css';
 
 class MusicCard extends Component {
   state = {
@@ -44,14 +45,14 @@ class MusicCard extends Component {
     return (
       <div>
         {isLoading && <Loading />}
-        <p>{ trackName }</p>
+        <p className="white-text">{ trackName }</p>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento
           <code>audio</code>
         </audio>
         <label htmlFor="favorite">
-          Favorita
+          Favorite
           <input
             type="checkbox"
             name=""

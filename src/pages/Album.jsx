@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import MusicCard from '../components/ MusicCard';
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
+import './album.css';
 
 class Album extends Component {
   state = {
@@ -26,8 +27,10 @@ class Album extends Component {
     return (
       <div data-testid="page-album">
         <Header />
-        <p data-testid="artist-name">{dadosArtista.artistName}</p>
-        <p data-testid="album-name">{dadosArtista.collectionName}</p>
+        <p className="white-text" data-testid="artist-name">{dadosArtista.artistName}</p>
+        <p className="white-text" data-testid="album-name">
+          {dadosArtista.collectionName}
+        </p>
         {musicas.map((musica) => (
           <MusicCard key={ musica.trackId } music={ musica } />
         )) }
