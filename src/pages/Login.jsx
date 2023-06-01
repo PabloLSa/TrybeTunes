@@ -38,27 +38,12 @@ class Login extends Component {
   render() {
     const { isDisabled, name, isLoading } = this.state;
 
-    const containerStyle = {
-      height: '100vh',
-      backgroundColor: '#140d24',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-    };
-
     return (
-      <Container data-testid="page-login" style={ containerStyle }>
-        <h1 className="text-center display-4 fw-bold" style={ { color: 'white' } }>
+      <Container data-testid="page-login" className="login-container">
+        <h1 className="text-center display-4 fw-bold">
           Listen to a snippet of your favorite song
         </h1>
-        <legend
-          className="mb-4 text-center fs-5"
-          style={ { fontSize: '1.5rem', color: 'white' } }
-          htmlFor="Access"
-        >
-          Access Tunes
-        </legend>
+        <legend className="mb-4 text-center fs-5" htmlFor="Access">Access Tunes</legend>
 
         <Form.Control
           type="text"
@@ -87,7 +72,6 @@ class Login extends Component {
           src={ img }
           alt="music"
           className="img-responsive rounded-image"
-          style={ { maxWidth: '100%', height: 'auto', marginTop: '20px' } }
         />
       </Container>
     );

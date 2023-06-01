@@ -1,4 +1,25 @@
-.rounded-image {
-  border-radius: 70%;
+.login-container {
+  height: 100vh;
+  background-color: #140d24;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+.login-container h1 {
+  color: white;
+}
+
+.login-container legend {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.login-container .rounded-image {
+  width: 200px; /* Ajuste a largura desejada */
+  height: 200px; /* Ajuste a altura desejada */
+  border-radius: 50%; /* Define metade da largura/altura para obter um círculo */
+  margin-top: 20px;
+  max-width: 100%; /* Adicione esta propriedade */
+}
