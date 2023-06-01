@@ -9,7 +9,7 @@ class App extends React.Component {
       <div
         className="d-flex flex-column align-items-center justify-content-center"
         style={ {
-          backgroundColor: 'black',
+          backgroundColor: '#20063b',
 
         } }
       >

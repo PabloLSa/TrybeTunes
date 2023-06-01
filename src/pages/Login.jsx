@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import { Button, Container, Form } from 'react-bootstrap';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
-// import Img from '../pexels-elviss-railijs-bitāns-1389429.jpg';
-
-// or less ideally
+import img from '../download.png';
+import './pages.css';
 
 class Login extends Component {
   state = {
@@ -38,33 +37,28 @@ class Login extends Component {
 
   render() {
     const { isDisabled, name, isLoading } = this.state;
+
+    const containerStyle = {
+      height: '100vh',
+      backgroundColor: '#140d24',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+    };
+
     return (
-      <Container
-        data-testid="page-login"
-        className="d-flex flex-column align-items-center justify-content-center"
-        style={ { height: '100vh',
-          backgroundImage: 'url("https://as1.ftcdn.net/v2/jpg/05/62/98/36/1000_F_562983674_524xR5Rzurt8MjTQghCvNYBcyeuvLHPE.jpg")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        } }
-      >
-        <h1
-          className="text-center display-4 fw-bold"
-          style={ {
-            color: 'black',
-          } }
-        >
+      <Container data-testid="page-login" style={ containerStyle }>
+        <h1 className="text-center display-4 fw-bold" style={ { color: 'white' } }>
           Listen to a snippet of your favorite song
-
         </h1>
-
-        <h1
+        <legend
           className="mb-4 text-center fs-5"
-          style={ { fontSize: '1.5rem' } }
+          style={ { fontSize: '1.5rem', color: 'white' } }
           htmlFor="Access"
         >
           Access Tunes
-        </h1>
+        </legend>
 
         <Form.Control
           type="text"
@@ -86,9 +80,16 @@ class Login extends Component {
         >
           Enter
         </Button>
-        {isLoading && <Loading />}
-      </Container>
 
+        {isLoading && <Loading />}
+
+        <img
+          src={ img }
+          alt="music"
+          className="img-responsive rounded-image"
+          style={ { maxWidth: '100%', height: 'auto', marginTop: '20px' } }
+        />
+      </Container>
     );
   }
 }
