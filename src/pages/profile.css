@@ -1,0 +1,13 @@
+.container {
+  height: 100vh;
+}
+
+.edit-profile-link {
+  display: block;
+  margin-top: 20px;
+}
+
+.profile-form p {
+  color: white;
+}
+

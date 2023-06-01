@@ -17,8 +17,8 @@
 }
 
 .login-container .rounded-image {
-  width: 200px; /* Ajuste a largura desejada */
   height: 200px; /* Ajuste a altura desejada */
+  width: 200px; /* Ajuste a largura desejada */
   border-radius: 50%; /* Define metade da largura/altura para obter um círculo */
   margin-top: 20px;
   max-width: 100%; 

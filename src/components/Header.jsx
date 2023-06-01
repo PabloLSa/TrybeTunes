@@ -31,7 +31,7 @@ class Header extends Component {
     return (
       <header data-testid="header-component" className="header">
         <Navbar expand="lg" variant="dark">
-          <Navbar.Brand href="/" className="header-title">TrybeTunes</Navbar.Brand>
+          <Navbar.Brand href="/" className="header-title">Tunes</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar-nav" />
           <Navbar.Collapse id="navbar-nav">
             <Nav className="mr-auto">

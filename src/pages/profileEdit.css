@@ -1,14 +1,31 @@
+.edit-container {
+  background-color: #140d24;
+  height: 100vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
 .profile-edit-form {
   margin: 0 auto;
   max-width: 500px;
 }
 
-.profile-edit-form label,
-.profile-edit-form input,
-.profile-edit-form button {
+
+.profile-edit-form button, label, input {
   color: white;
 }
 
 .search-button {
   margin-top: 10px;
+}
+
+.edit-container .rounded-image {
+  height: 200px; /* Ajuste a altura desejada */
+  border-radius: 50%; /* Define metade da largura/altura para obter um círculo */
+  width: 200px; /* Ajuste a largura desejada */
+  max-width: 100%; 
+  margin-top: 20px;
 }

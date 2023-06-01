@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Container } from 'react-bootstrap';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser, updateUser } from '../services/userAPI';
+import img from '../download.png';
 import './profileEdit.css';
 
 class ProfileEdit extends Component {
@@ -48,8 +49,8 @@ class ProfileEdit extends Component {
   };
 
   validation = () => {
-    const { name, description, email, image } = this.state;
-    const valid = [name, description, email, image];
+    const { name, description, email } = this.state;
+    const valid = [name, description, email];
     const val = valid.every((validate) => validate.length > 0);
     if (val) {
       this.setState({
@@ -59,15 +60,16 @@ class ProfileEdit extends Component {
   };
 
   render() {
-    const { name, description, email, image, charge, btn } = this.state;
+    const { name, description, email, charge, btn } = this.state;
     return (
-      <div data-testid="page-profile-edit">
+      <Container className="edit-container">
+
         <Header />
         {charge && <Loading />}
         <Form className="profile-edit-form">
           <fieldset>
             <Form.Group controlId="edit-input-name">
-              <Form.Label>Nome</Form.Label>
+              <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
                 value={ name }
@@ -85,7 +87,7 @@ class ProfileEdit extends Component {
               />
             </Form.Group>
             <Form.Group controlId="edit-input-description">
-              <Form.Label>Descrição</Form.Label>
+              <Form.Label>Description</Form.Label>
               <Form.Control
                 type="text"
                 value={ description }
@@ -93,15 +95,7 @@ class ProfileEdit extends Component {
                 onChange={ this.handleChange }
               />
             </Form.Group>
-            <Form.Group controlId="edit-input-image">
-              <Form.Label>Imagem</Form.Label>
-              <Form.Control
-                type="text"
-                value={ image }
-                name="image"
-                onChange={ this.handleChange }
-              />
-            </Form.Group>
+
           </fieldset>
           <div className="search-button">
             <Button
@@ -111,12 +105,18 @@ class ProfileEdit extends Component {
               onClick={ this.updateInfo }
               disabled={ btn }
             >
-              Editar perfil
+              Edit profile
             </Button>
           </div>
 
         </Form>
-      </div>
+        <img
+          src={ img }
+          alt="music"
+          className="img-responsive rounded-image"
+        />
+
+      </Container>
     );
   }
 }
