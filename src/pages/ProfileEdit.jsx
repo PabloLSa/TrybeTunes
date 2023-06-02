@@ -87,7 +87,7 @@ class ProfileEdit extends Component {
               />
             </Form.Group>
             <Form.Group controlId="edit-input-description">
-              <Form.Label>Description</Form.Label>
+              <Form.Label>Enter your favorite music style</Form.Label>
               <Form.Control
                 type="text"
                 value={ description }
