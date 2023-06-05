@@ -25,7 +25,7 @@
 .edit-container .rounded-image {
   height: 200px; /* Ajuste a altura desejada */
   border-radius: 50%; /* Define metade da largura/altura para obter um círculo */
-  width: 200px; /* Ajuste a largura desejada */
   max-width: 100%; 
+  width: 200px; /* Ajuste a largura desejada */
   margin-top: 20px;
 }

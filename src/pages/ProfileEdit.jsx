@@ -100,7 +100,7 @@ class ProfileEdit extends Component {
           <div className="search-button">
             <Button
               type="button"
-              variant="primary"
+              variant="secondary"
               data-testid="edit-button-save"
               onClick={ this.updateInfo }
               disabled={ btn }

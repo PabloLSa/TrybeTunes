@@ -11,3 +11,28 @@
   color: white;
 }
 
+.profile-form {
+  margin-bottom: 20px;
+}
+
+.profile-field {
+  margin-bottom: 10px;
+}
+
+.profile-field label {
+  font-weight: 700;
+  margin-right: 5px;
+}
+
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.rounded-image {
+  border-radius: 50%;
+  height: auto;
+  margin-top: 40px;
+  max-width: 300px;
+}

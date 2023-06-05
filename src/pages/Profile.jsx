@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser } from '../services/userAPI';
+import img from '../download.png';
 import './profile.css';
 
 class Profile extends Component {
@@ -38,12 +39,32 @@ class Profile extends Component {
         <Header />
         {charge && <Loading />}
         <Form className="profile-form">
-          <p>{name}</p>
-          <p>{description}</p>
-          <p>{email}</p>
-          <Link to="/profile/edit" className="edit-profile-link">Edit profile</Link>
-        </Form>
+          <div className="profile-field">
+            <h1>Name:</h1>
+            <p>{name}</p>
+          </div>
+          <div className="profile-field">
+            <h2>Email:</h2>
+            <p>{email}</p>
+          </div>
+          <div className="profile-field">
+            <h3>My favorite music style:</h3>
+            <p>{description}</p>
+          </div>
 
+          <Link to="/profile/edit">
+            <Button className="edit-profile-link" variant="secondary">
+              Edit profile
+            </Button>
+          </Link>
+        </Form>
+        <div className="profile-image-container">
+          <img
+            src={ img }
+            alt="music"
+            className="img-responsive rounded-image"
+          />
+        </div>
       </div>
     );
   }
